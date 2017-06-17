@@ -1,0 +1,56 @@
+.text-blue {
+    color: dodgerblue !important;
+    ;
+}
+
+.text-red {
+    color: crimson !important;
+    ;
+}
+
+.text-orange {
+    color: orange !important;
+    ;
+}
+
+.text-green {
+    color: green !important;
+    ;
+}
+
+.text-primary {
+    color: #489 !important;
+}
+
+.text-secondary {
+    color: #489 !important;
+    opacity: 0.8;
+}
+.text-disabled {
+   
+    opacity: 0.85;
+}
+
+.btn-primary.btn-circle {
+    background: #eee;
+}
+
+.btn-primary {
+    background: #489;
+    border-color: #489 !important;
+}
+
+.btn-outline-primary {
+    border-color: #489 !important;
+    color: #489;
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    background: #34505e;
+    border-color: #34505e !important;
+}
+
+a{
+    cursor: pointer;
+}
