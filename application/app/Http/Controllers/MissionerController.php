@@ -74,6 +74,6 @@ class MissionerController extends Controller
     {
         $missioner = Missioner::find($id);
         $missioner->delete();
-        return redirect($this->uri.'/missioners');
+        return redirect('missioners/viewMissioners');
     }
 }

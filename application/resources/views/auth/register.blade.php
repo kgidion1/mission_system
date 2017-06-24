@@ -44,59 +44,106 @@
                     </div>
                 </div>
 
+                <form class="form-horizontal" role="form" method="post" action="{{ url('/register') }}">
+                    {{ csrf_field() }}
+
                 <div class="container-fluid">
                     <div class="steps">
                         <div class="item active" id="1">
                             <div class="container">
-                                <div class="col-md-6">
-                                    <div class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-md-3">First Name</label>
-                                            <div class="col-md-9"><input id="first_name" class="form-control" placeholder="First Name"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3">Last Name</label>
-                                            <div class="col-md-9"><input id="last_name" class="form-control" required="required" data-empty-message="provide last name" placeholder="Last Name" data-input="letters"></div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label class="col-md-3">Contact</label>
-                                            <div class="col-md-9"><input id="contact" required="required" placeholder="Contact" data-empty-message="provide last name" class="form-control"></div>
+                                    <div class="col-md-6">
+                                    {{--<div class="form-horizontal">--}}
+                                        <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
+                                            <label for="firstname" class="col-md-3">First Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="name" class="form-control" value="{{ old('firstname') }}" required>
+                                                @if ($errors->has('firstname'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3">Email Address</label>
-                                            <div class="col-md-9"><input id="email" required="required" placeholder="Email Address" data-empty-message="provide email Address" class="form-control"></div>
+                                        <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+                                            <label for="lastname" class="col-md-3">Last Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="name" class="form-control" value="{{ old('lastname') }}" required>
+                                                @if ($errors->has('lastname'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
+                                        <div class="form-group{{ $errors->has('contact') ? ' has-error' : '' }}">
+                                            <label for="contact" class="col-md-3">Contact</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="contact" name="contact" value="{{ old('contact') }}" class="form-control" required>
+                                                @if ($errors->has('contact'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('contact') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                            <label for="email" class="col-md-3">Email Address</label>
+                                            <div class="col-md-9">
+                                                <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" required>
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    {{--</div>--}}
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="col-md-3">Username</label>
-                                            <div class="col-md-9"><input id="archd" class="form-control" placeholder="Username"></div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                                            <label for="username" class="col-md-3">Username</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="name" name="username" class="form-control" value="{{ old('username') }}" required>
+                                                @if ($errors->has('username'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('username') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                            <label for="password" class="col-md-3">Password</label>
+                                            <div class="col-md-9">
+                                                <input name="password" type="password" id="password" class="form-control" required>
+                                                @if ($errors->has('password'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3">Password</label>
-                                            <div class="col-md-9"><input data-input="password" type="password" id="password" class="form-control" placeholder="Password" data-invalid-message="invalid Diocese"></div>
+                                            <label for="password-confirm" class="col-md-3">Confirm Password</label>
+                                            <div class="col-md-9">
+                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3">Confirm Password</label>
-                                            <div class="col-md-9"><input data-input="password" type="password" id="password" class="form-control" placeholder="Re-type Password" data-invalid-message="invalid Diocese"></div>
-                                        </div>
+                                    {{--</div>--}}
                                     </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <hr>
                         <div class="text-right step-ride">
                             <a class="btn btn-danger"><i class="fa fa-remove"></i> Cancel</a>
-                            <button class="btn btn-success"> <i class="fa fa-check-circle"></i> Save </button>
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check-circle"></i> Save </button>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

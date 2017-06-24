@@ -32,20 +32,27 @@ Auth::routes();
 // Route::group(['middleware'=>'auth'],function(){
     Route::get('/home', 'HomeController@index');
     Route::get('users/viewUsers','HomeController@viewUsers');
+    Route::post('users/addUser',
+        [
+            'as' => 'addUser',
+             'uses' => 'HomeController@createUser'
+        ]
+    );
     //================= churches logic ======================|
     Route::get('church/viewChurches', 'ChurchController@viewChurches');
     Route::get('church/addchurch','ChurchController@addChurch');
-    Route::post('church/insertChurch/{id}',
+    Route::post('church/insertChurch',
         [
             'as'=>'insertChurch',
-            'uses'=>'ChurchController@insertChurch',
+            'uses'=>'ChurchController@insertChurch'
         ]
     );
-    Route::post('church/removeChurch',
+    Route::post('church/viewChurches/{id}',
         [
-            'as' => 'removeChurch',
+            'as' => 'Church.remove',
             'uses' => 'ChurchController@destroy'
-    ]);
+        ]
+    );
     //========================= missioners logic =====================|
     Route::get('missioners/viewMissioners','MissionerController@viewMissioners');
     Route::get('missioners/addMissioner','MissionerController@addMissioner');
@@ -53,6 +60,12 @@ Auth::routes();
         [
             'as'=>'insertMissioner',
             'uses'=>'MissionerController@createMissioner'
+        ]
+    );
+    Route::post('missioners/viewMissioners/{id}',
+        [
+            'as' => 'Missioner.remove',
+            'uses' => 'MissionerController@destroy'
         ]
     );
 // });

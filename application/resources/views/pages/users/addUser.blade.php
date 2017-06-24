@@ -74,7 +74,7 @@
                                 <div class="col-md-9"><input id="contact" required="required" placeholder="Contact" data-empty-message="provide last name" class="form-control"></div>
                             </div>
                                 <div class="form-group">
-                                <label class="col-md-3">Enail Address</label>
+                                <label class="col-md-3">Email Address</label>
                                 <div class="col-md-9"><input id="email" required="required" placeholder="Email Address" data-empty-message="provide email Address" class="form-control"></div>
                             </div>
                             <!-- <div class="form-group">

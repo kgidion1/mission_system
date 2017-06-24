@@ -42,7 +42,7 @@
       <div class="content-wrapper" style="height: 680px;">
         <div class="content-body">
             <div class="container-fluid">
-        <table class="table tableSection scrolled">
+        <table class="table table-bordered scrolled">
             <thead>
                 <tr data-toggle="modal" data-target="#leave-details">
                     <th>First Name</th>

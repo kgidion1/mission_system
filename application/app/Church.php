@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Church extends Model
 {
-    protected $table = 'churches';
+    protected $table = 'church_details';  // church_details
 
     protected $fillable = [
-        'name','parishID',
+        'church','parish','archdeaconry',
     ];
 }

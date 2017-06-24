@@ -53,7 +53,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3">Church Name</label>
                                             <div class="col-md-9">
-                                                {!! Form::text('name',null,['class'=>'form-control']) !!}
+                                                {!! Form::text('church',null,['class'=>'form-control']) !!}
                                             </div>
                                         </div>
                                         <div class="form-group">

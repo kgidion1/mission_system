@@ -42,7 +42,7 @@
       <div class="content-wrapper" style="height: 680px;">
         <div class="content-body">
           <div class="container-fluid">
-            <table class="table scrolled">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr >
                         <th>First Name</th>
@@ -53,27 +53,28 @@
                     </tr>
                 </thead>
                 {{ csrf_field() }}
+                <tbody>
                 @foreach($missioners as $missioner)
-                {{--<tbody id="churches">--}}
-                <tr>
-                   <td>{{$missioner->firstname}}</td>
-                   <td>{{$missioner->lastname}}</td>
-                   <td>{{$missioner->contact}}</td>
-                   <td>{{$missioner->email}}</td>
-                   <td>
-                       <a href="#" data-toggle="modal" data-target="#view{{$missioner->id}}"  class="btn btn-xs  btn-info">View</a>
-                       <a href="#" data-toggle="modal" data-target="#edit{{$missioner->id}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;
-                       <a href="#" class="btn btn-danger">Remove</a>
-                   </td>
-                </tr>
-                {{--</tbody>--}}
+                    <tr>
+                       <td>{{$missioner->firstname}}</td>
+                       <td>{{$missioner->lastname}}</td>
+                       <td>{{$missioner->contact}}</td>
+                       <td>{{$missioner->email}}</td>
+                       <td>
+                           {{--<a href="#" data-toggle="modal" data-target="#view{{$missioner->id}}"  class="btn btn-xs  btn-info">View</a>--}}
+                           <a href="#" data-toggle="modal" data-target="#edit{{$missioner->id}}" class="btn btn-primary">Edit</a>
+                           <a href="#" data-toggle="modal" data-target="#remove{{$missioner->id}}" class="btn btn-danger">Remove</a>
+                       </td>
+                    </tr>
                 @endforeach
+                </tbody>
             </table>
           </div>
         </div>
       </div>
         <!-- edit modal -->
         @foreach($missioners as $missioner)
+            <!-- edit modal -->
             <div id="edit{{$missioner->id}}" class="modal fade" tabindex="-1"  role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -106,6 +107,27 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success waves-effect" data-dismiss="modal">Save</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!------------------------- delete (Confirm)? Modal ------------------------------>
+            <div id="remove{{$missioner->id}}" class="modal fade" tabindex="-1"  role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        {!! Form::open(['method'=>'post', 'route'=>['Missioner.remove',$missioner->id]]) !!}
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Delete Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to remove {{$missioner->firstname}} {{$missioner->lastname}}?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger waves-effect" onclick="$('.modal').modal('hide')">Yes</button>
+                            <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">No</button>
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

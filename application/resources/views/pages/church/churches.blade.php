@@ -42,31 +42,35 @@
       <div class="content-wrapper" style="height: 680px;">
       <div class="content-body">
         <div class="container-fluid">
-            <table class="table tableSection scrolled">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Church Name</th>
+                        <th>Church</th>
                         <th>Parish</th>
                         <th>Archdeaconry</th>
-                        <th>Diocese</th>
+                        {{--<th>Diocese</th>--}}
                         <th>Date Added</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 {{ csrf_field() }}
+                <tbody>
                 @foreach($data as $church)
+
                     <tr>
                         <td>{{$church->church}}</td>
                         <td>{{$church->parish}}</td>
                         <td>{{$church->archdeaconry}}</td>
-                        <td>Namirembe</td>
-                        <td>{{$church->dateCreated}}</td>
+                        {{--<td>Namirembe</td>--}}
+                        <td>{{$church->created_at}}</td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#edit{{$church->id}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;
                             <a href="#" data-toggle="modal" data-target="#delete{{$church->id}}" class="btn btn-danger">Remove</a>
                         </td>
                     </tr>
+
                 @endforeach
+                </tbody>
             </table>
         </div>
         </div>
@@ -119,16 +123,16 @@
         <div id="delete{{$church->id}}" class="modal fade" tabindex="-1"  role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    {!! Form::open(['method'=>'post', 'route'=>['removeChurch',$church->id]]) !!}
+                    {!! Form::open(['method'=>'post', 'route'=>['Church.remove',$church->id]]) !!}
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Delete Confirmation</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Are you sure you want to remove this item ?</p>
+                            <p>Are you sure you want to remove {{$church->church}}, {{$church->parish}}?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger waves-effect" data-dismiss="modal">Yes</button>
+                            <button type="submit" class="btn btn-danger waves-effect" onclick="$('.modal').modal('hide')">Yes</button>
                             <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">No</button>
                         </div>
                     {!! Form::close() !!}

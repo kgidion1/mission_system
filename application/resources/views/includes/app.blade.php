@@ -135,7 +135,7 @@
 
 
     <footer class="footer undefined footer-dark">
-        <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">MISSION MGNT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Powered By : <a href="#">Hive Technologies Ltd</a></span></p>
+        <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://themeforest.net/user/pixinvent/portfolio?ref=pixinvent" target="_blank" class="text-bold-800 grey darken-2">CHURCH MANAGEMENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Powered By : <a href="#">Hive Technologies Ltd</a></span></p>
     </footer>
 
     <!-- BEGIN VENDOR JS-->
