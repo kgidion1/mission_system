@@ -41,6 +41,8 @@ Auth::routes();
     //================= churches logic ======================|
     Route::get('church/viewChurches', 'ChurchController@viewChurches');
     Route::get('church/addchurch','ChurchController@addChurch');
+    Route::get('church/Members', 'ChurchController@viewMembers');
+    Route::post('addMember', array('uses' => 'ChurchController@addMember'));
     Route::post('church/insertChurch',
         [
             'as'=>'insertChurch',
@@ -53,9 +55,17 @@ Auth::routes();
             'uses' => 'ChurchController@destroy'
         ]
     );
+    Route::post('church/Members/{id}',
+        [
+            'as' => 'Member.remove',
+            'uses' => 'ChurchController@removeMember'
+        ]
+    );
     //========================= missioners logic =====================|
     Route::get('missioners/viewMissioners','MissionerController@viewMissioners');
     Route::get('missioners/addMissioner','MissionerController@addMissioner');
+    Route::get('mission/Coordinators', 'MissionerController@viewCoordinators');
+    Route::post('addCoordinator', array('uses' => 'MissionerController@addCoordinator'));
     Route::post('missioners/addMissioner',
         [
             'as'=>'insertMissioner',
@@ -66,6 +76,12 @@ Auth::routes();
         [
             'as' => 'Missioner.remove',
             'uses' => 'MissionerController@destroy'
+        ]
+    );
+    Route::post('mission/Coordinators/{id}',
+        [
+            'as' => 'Coordinator.remove',
+            'uses' => 'MissionerController@removeCoordinator'
         ]
     );
 // });

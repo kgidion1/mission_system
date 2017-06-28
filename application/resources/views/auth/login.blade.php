@@ -4,8 +4,9 @@
 
     <form role="form" method="POST" action="{{ url('/login') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-            <input id="username" type="text" placeholder="username" class="form-control" name="username" required autofocus>
+            <input id="username" type="text" value="{{ old('username') }}" class="form-control" name="username" required autofocus>
             @if ($errors->has('username'))
                 <span class="help-block">
                     <strong>{{ $errors->first('username') }}</strong>
@@ -13,7 +14,7 @@
             @endif
         </div>
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <input id="password" placeholder="password" type="password" class="form-control" name="password" required>
+            <input id="password" value="{{ old('password') }}" type="password" class="form-control" name="password" required>
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>

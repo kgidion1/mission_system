@@ -11,6 +11,7 @@ use App\Diocese;
 use App\Archdiocese;
 use App\Archdeaconry;
 use Response;
+use App\church_member as members;
 
 class ChurchController extends Controller
 {
@@ -31,9 +32,54 @@ class ChurchController extends Controller
             //->paginate(10);
         return view($this->uri.'/churches',['data'=>$data]);
     }
+    public function viewMembers()
+    {
+        $new_members = members::all();
+        return view($this->uri.'/members' , ['new_members'=>$new_members]);
+    }
     public function addChurch()
     {
         return view($this->uri.'/add_church');
+    }
+//    public function getMembers()
+//    {
+//        $new_members = members::all();
+//        return view('church/Members', ['new_members'=>$new_members]);
+//    }
+    public function addMember(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'church' => 'required',
+            'contact' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+        ]);
+        if($validator->fails())
+        {
+            $array = array(
+                'status' => 500,
+                'data' => $validator->errors(),
+                'message' => 'some errors occured'
+            );
+        } else {
+            $members = new members();
+            $members->church = $request->church;
+            $members->contact = $request->contact;
+            $members->firstname = $request->firstname;
+            $members->lastname = $request->lastname;
+
+            if ($members->save()) {
+                // redirect to a given page .....
+                return redirect('church/Members')->with('message','new member successfully added');
+
+            } else {
+                $array = array(
+                    'status' => 500,
+                    'message' => 'failed to add member'
+                );
+            }
+        }
+        return response(json_encode($array))->header('Content-Type','application/json');
     }
     public function insertChurch(Request $request)
     {
@@ -73,5 +119,11 @@ class ChurchController extends Controller
         $church = Church::find($id);
         $church->delete();
         return redirect($this->uri.'/churches');
+    }
+    public function removeMember($id)
+    {
+        $member = members::find($id);
+        $member->delete();
+        return redirect($this->uri.'/members');
     }
 }

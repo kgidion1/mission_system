@@ -21,38 +21,38 @@
                                 <div class="media-left media-middle">
                                     <!-- <i class="icon-box font-large-1 blue-grey"></i> -->
                                 </div>
-                                <p class="text-muted">To Registered Churches
+                                <p class="text-muted">Active Church Members
                                 <span class="info float-xs-right font-large-1 text-bold-300"></span></p>
                                 <div class="media-body text-xs-right">
                                     <span class="font-large-2 text-bold-300 info">5,879</span>
                                 </div>
-                                <a href="#" class="btn btn-success">View All</a>
+                                <a href="{{ url('/church/Members') }}" class="btn btn-success">View All</a>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-6 col-sm-12 border-right-blue-grey border-right-lighten-5">
-                            <div class="media px-1">
-                                <div class="media-left media-middle">
-                                    <!-- <i class="icon-tag3 font-large-1 blue-grey"></i> -->
-                                </div>
-                                
-                                <p class="text-muted">Total System Users<span class="deep-orange float-xs-right"></span></p>
-                                <div class="media-body text-xs-right">
-                                    <span class="font-large-2 text-bold-300 deep-orange">423</span>
-                                </div>
-                               <a href="#" class="btn btn-warning">View All</a>
-                            </div>
-                        </div>
+                        {{--<div class="col-xl-4 col-lg-6 col-sm-12 border-right-blue-grey border-right-lighten-5">--}}
+                            {{--<div class="media px-1">--}}
+                                {{--<div class="media-left media-middle">--}}
+                                    {{--<!-- <i class="icon-tag3 font-large-1 blue-grey"></i> -->--}}
+                                {{--</div>--}}
+
+                                {{--<p class="text-muted">Total System Users<span class="deep-orange float-xs-right"></span></p>--}}
+                                {{--<div class="media-body text-xs-right">--}}
+                                    {{--<span class="font-large-2 text-bold-300 deep-orange">423</span>--}}
+                                {{--</div>--}}
+                               {{--<a href="{{ url('/users/viewUsers') }}" class="btn btn-warning">View All</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="col-xl-4 col-lg-6 col-sm-12">
                             <div class="media px-1">
                                 <div class="media-left media-middle">
                                     <!-- <i class="icon-shuffle3 font-large-1 blue-grey"></i> -->
                                 </div>
                                
-                                <p class="text-muted">Total Registered Missioners<span class="danger float-xs-right"></span></p>
+                                <p class="text-muted">Mission_Coordinators<span class="danger float-xs-right"></span></p>
                                  <div class="media-body text-xs-right">
                                     <span class="font-large-2 text-bold-300 danger">1600</span>
                                 </div>
-                                 <a href="#" class="btn btn-primary">View All</a>
+                                 <a href="{{ url('/mission/Coordinators') }}" class="btn btn-primary">View All</a>
                             </div>
                         </div>
                        

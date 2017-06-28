@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use Validator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,7 @@ class HomeController extends Controller
     public function viewUsers()
     {
         $users = User::all();
+//        $users = DB::table('users')->paginate(5);
         return view('pages/users/users',['users'=>$users]);
     }
     function createUser(Request $request)
